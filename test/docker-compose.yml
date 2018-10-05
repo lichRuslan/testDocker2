@@ -1,0 +1,9 @@
+version: '3'
+services:
+ test:
+  build: .
+  restart: always
+  volumes:
+   - ../qwe:/usr/src/app/logs
+
+  
