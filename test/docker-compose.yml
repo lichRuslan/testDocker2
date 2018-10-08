@@ -4,6 +4,6 @@ services:
   build: .
   restart: always
   volumes:
-   - ../qwe:/usr/src/app/logs
+   - ./:/usr/src/app/logs
 
   

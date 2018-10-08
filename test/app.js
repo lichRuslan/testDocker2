@@ -16,7 +16,6 @@ app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
 
 
-
 var i=0;
 function myOutput (a, b){
     console.log(i++ + '| из |'+a+'| в |'+b+'|');
