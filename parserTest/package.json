@@ -1,0 +1,11 @@
+{
+  "name": "parsertest",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "dependencies": {
+    "osmosis": "^1.1.8"
+  }
+}
