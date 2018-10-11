@@ -1,5 +1,5 @@
 const express = require('express')
-var bodyParser     =        require("body-parser");
+var bodyParser = require("body-parser");
 const MongoClient = require ('mongodb').MongoClient;
 
 const app = express();
@@ -11,17 +11,28 @@ app.use(bodyParser.json());
 const postHandler = (req, res) => {
     // save to mongo
     console.log(req.body);
-    res.end();
+    
+    
+    db.collection('ruslan_coll').insert(req.body, function(err, result){
+        if(err){
+            console.log("error at insert record:" + err); 
+            res.sendStatus(502);
+            return;
+        }
+
+        res.send(req.body);
+        res.end();
+    });
 }
 
 app.post('/', postHandler);
-app.listen(8090, '0.0.0.0');
-// MongoClient.connect('mongo://localhost:27017/myhanoe', function(err, database){
-//     if (err){ return console.log(err);}
+// app.listen(8090, '0.0.0.0');
+MongoClient.connect('mongodb://localhost:27017', function(err, database){
+    if (err){return  console.log("fack "+ err);}
 
-//     db = database;
-//     app.listen(8090, function(){
-//         console.log('Good!!__________________________Good!_____________________Good!');
-//     });
-// });
+    db = database.db("ruslan");
+    app.listen(8090, function(){
+        console.log('Good!!__________________________Good!_____________________Good!');
+    });
+});
 
