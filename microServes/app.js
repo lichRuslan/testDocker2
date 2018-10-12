@@ -27,7 +27,7 @@ const postHandler = (req, res) => {
 
 app.post('/', postHandler);
 // app.listen(8090, '0.0.0.0');
-MongoClient.connect('mongodb://localhost:27017', function(err, database){
+MongoClient.connect('mongodb://192.168.0.118:32784', function(err, database){
     if (err){return  console.log("fack "+ err);}
 
     db = database.db("ruslan");
